@@ -1,5 +1,6 @@
 <template>
-  {{ msg }}
+  <!-- {{ msg }} -->
+  <router-view />
 </template>
 
 <script setup lang="js">

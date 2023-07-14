@@ -13,8 +13,22 @@ function render(props = {}) {
 
   router = createRouter({
     history: createWebHistory(),
-    base: window.__POWERED_BY_QIANKUN__ ? '/microChild' : '/',
-    routes: []
+    base: 'microChild', // window.__POWERED_BY_QIANKUN__ ? '/microChild' : '',
+    routes: [
+      {
+        path: "/microChild",
+        children: [
+          {
+            path: "home",
+            component: () => import("./pages/home.vue")
+          },
+          {
+            path: "about",
+            component: () => import("./pages/about.vue")
+          }
+        ]
+      }
+    ]
   })
 
   instance = createApp(App).use(router).mount(container ? container.querySelector("#app") : "#app");
@@ -35,11 +49,11 @@ export async function mount(props) {
   console.error("子应用进来了----", props, instance)
 } 
 
-export async function unmount() {
-  console.error("子应用离开了-----", instance, instance.$el)
+export async function unmount(props) {
+  console.error("子应用离开了-----", 'props:', props, 'instance:', instance, instance.$el)
   // instance.$destroy();
-  instance.unmount();
-  instance.$el = null;
+  // instance.unmount();
+  // instance.$el = null;
 }
 export async function update(props) {
     //   console.log('update props', props);
