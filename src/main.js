@@ -31,13 +31,15 @@ export async function bootstrap() {
 }
 
 export async function mount(props) {
-  console.error("子应用进来了----", props, instance)
   render(props);
+  console.error("子应用进来了----", props, instance)
 } 
 
 export async function unmount() {
   console.error("子应用离开了-----", instance, instance.$el)
   // instance.$destroy();
+  instance.unmount();
+  instance.$el = null;
 }
 export async function update(props) {
     //   console.log('update props', props);
