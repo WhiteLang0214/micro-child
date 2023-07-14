@@ -1,17 +1,24 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  {{ msg }}
 </template>
 
-<script>
-import HelloWorld from './components/HelloWorld.vue'
+<script setup lang="js">
 
-export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
+import { onMounted, ref } from 'vue';
+
+let msg = ref("");
+
+const setDate = () => {
+  msg.value = "子应用倒计时:" +  new Date();
+  setInterval(() => {
+    console.log(1)
+    msg.value = "子应用倒计时:" +  new Date();
+  }, 1000)
 }
+
+onMounted(() => {
+  setDate();
+})
 </script>
 
 <style>
