@@ -4,7 +4,7 @@
 
 <script setup lang="js">
 
-const msg = "子应用的home页面"
+const msg = "子应用的about页面"
 
 </script>
 <style scoped>
