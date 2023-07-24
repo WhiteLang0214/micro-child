@@ -1,25 +1,24 @@
 <template>
-  <!-- {{ msg }} -->
   <router-view />
 </template>
 
 <script setup lang="js">
 
-import { onMounted, ref } from 'vue';
+// import { onMounted, ref } from 'vue';
 
-let msg = ref("");
+// let msg = ref("");
 
-const setDate = () => {
-  msg.value = "子应用倒计时:" +  new Date();
-  setInterval(() => {
-    console.log(1)
-    msg.value = "子应用倒计时:" +  new Date();
-  }, 1000)
-}
+// const setDate = () => {
+//   msg.value = "子应用倒计时:" +  new Date();
+//   setInterval(() => {
+//     console.log(1)
+//     msg.value = "子应用倒计时:" +  new Date();
+//   }, 1000)
+// }
 
-onMounted(() => {
-  setDate();
-})
+// onMounted(() => {
+//   setDate();
+// })
 </script>
 
 <style>
