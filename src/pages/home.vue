@@ -1,5 +1,6 @@
 <template>
   <div>{{ msg }}</div>
+  <router-view />
 </template>
 
 <script setup lang="js">
