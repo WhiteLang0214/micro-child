@@ -8,7 +8,13 @@ import "@/assets";
 let instance = null;
 function render(props = {}) {
   const { container } = props;
-  instance = createApp(App).use(router).mount(container ? container.querySelector("#app") : "#app");
+  instance = createApp(App);
+  instance.use(router).mount(container ? container.querySelector("#app") : "#app");
+  
+  if (window.__POWERED_BY_QIANKUN__ && process.env.NODE_ENV === 'development') {
+    // 全局挂载子应用vm
+    window.__QIANKUN_MICROCHILD_VM__ = instance;
+  }
 }
 
 //如果是独立运行window.__POWERED_BY_QIANKUN__=undefined
@@ -30,15 +36,10 @@ export async function mount(props) {
 
   props.setGlobalState(store);
   render(props);
-  console.error("子应用进来了----", props, instance)
 } 
 
 export async function unmount(props) {
-  console.error("子应用离开了-----", 'props:', props, 'instance:', instance, instance.$el)
-  // instance.$destroy();
-  // instance.unmount();
-  // instance.$el = null;
-  router = null;
+  instance.unmount();
 }
 export async function update(props) {
     //   console.log('update props', props);
