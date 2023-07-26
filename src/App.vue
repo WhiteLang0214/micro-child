@@ -3,22 +3,6 @@
 </template>
 
 <script setup lang="js">
-
-// import { onMounted, ref } from 'vue';
-
-// let msg = ref("");
-
-// const setDate = () => {
-//   msg.value = "子应用倒计时:" +  new Date();
-//   setInterval(() => {
-//     console.log(1)
-//     msg.value = "子应用倒计时:" +  new Date();
-//   }, 1000)
-// }
-
-// onMounted(() => {
-//   setDate();
-// })
 </script>
 
 <style>
