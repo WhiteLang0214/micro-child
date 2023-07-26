@@ -1,7 +1,7 @@
 import "./public-path.js";
 import { createApp } from 'vue'
 import App from './App.vue'
-import store from "./store";
+// import store from "./store";
 import router  from "./router/index.js";
 import "@/assets";
 
@@ -11,10 +11,10 @@ function render(props = {}) {
   instance = createApp(App);
   instance.use(router).mount(container ? container.querySelector("#app") : "#app");
   
-  if (window.__POWERED_BY_QIANKUN__ && process.env.NODE_ENV === 'development') {
-    // 全局挂载子应用vm
-    window.__QIANKUN_MICROCHILD_VM__ = instance;
-  }
+  // if (window.__POWERED_BY_QIANKUN__ && process.env.NODE_ENV === 'development') {
+  //   // 全局挂载子应用vm
+  //   window.__QIANKUN_MICROCHILD_VM__ = instance;
+  // }
 }
 
 //如果是独立运行window.__POWERED_BY_QIANKUN__=undefined
@@ -34,7 +34,7 @@ export async function mount(props) {
     sessionStorage.setItem("token", "从主应用共享的token" + JSON.stringify(state.getters))
   });
 
-  props.setGlobalState(store);
+  // props.setGlobalState(store);
   render(props);
 } 
 
