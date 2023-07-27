@@ -1,5 +1,1 @@
-export const state = {
-  token: "",
-  loginInfo: {},
-  isLogin: false
-}
+export const state = {}
